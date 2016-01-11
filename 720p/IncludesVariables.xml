@@ -3595,6 +3595,7 @@
 	<value condition="SubString(Container(9000).ListItem.Property(widgets),years)">icons/years/$INFO[ListItem.Label].png</value>
 	</variable>
 	<variable name="value_widgetsinfopanel">
+	<value condition="!IsEmpty(Container(510).ListItem.Art(thumb))">$INFO[Container(510).ListItem.Art(thumb)]</value>
 	<value condition="!IsEmpty(Container(510).ListItem.Art(poster))">$INFO[Container(510).ListItem.Art(poster)]</value>
 	<value condition="!IsEmpty(Container(510).ListItem.Art(tvshow.poster))">$INFO[Container(510).ListItem.Art(tvshow.poster)]</value>
 	<value condition="IsEmpty(ListItem.Art(poster)) + IsEmpty(ListItem.Art(tvshow.poster)) + ![SubString(Container(9000).ListItem.Property(widgets),genre) | SubString(Container(9000).ListItem.Property(widgets),countries) | SubString(Container(9000).ListItem.Property(widgets),studios) | SubString(Container(9000).ListItem.Property(widgets),years)]">$INFO[Container(510).ListItem.Icon]</value>
@@ -3976,9 +3977,20 @@
 	<value condition="Window.IsActive(134)">[COLOR=$VAR[value_headercolor]]$LOCALIZE[31210]: [/COLOR]$INFO[Container(450).NumItems] - [COLOR=$VAR[value_headercolor]]$LOCALIZE[31215]: [/COLOR]$INFO[Container(450).CurrentPage]/$INFO[Container(450).NumPages]</value>
 	<value condition="Skin.HasSetting(games)">[COLOR=$VAR[value_headercolor]]$LOCALIZE[31088]: [/COLOR]$INFO[Container.NumItems] - [COLOR=$VAR[value_headercolor]]$LOCALIZE[31215]: [/COLOR]$INFO[Container.CurrentPage]/$INFO[Container.NumPages]</value>
 	</variable>
-	
+
+	<variable name="value_seasonpad">
+	<value condition="!IntegerGreaterThan(Container(510).ListItem.Season,9)">$INFO[Container(510).ListItem.Season,0,]</value>
+	<value>$INFO[Container(510).ListItem.Season]</value>
+	</variable>
+
+	<variable name="value_episodepad">
+	<value condition="!IntegerGreaterThan(Container(510).ListItem.Episode,9)">$INFO[Container(510).ListItem.Episode,0,]</value>
+	<value>$INFO[Container(510).ListItem.Episode]</value>
+	</variable>
+
 	<variable name="value_mainmenu_label">
-	<value condition="!IsEmpty(Container(510).ListItem.Title)">$INFO[Container(510).ListItem.Season,,/]$INFO[Container(510).ListItem.Episode,, - ]$INFO[Container(510).ListItem.TVShowTitle,(,) ]$INFO[Container(510).ListItem.Title]</value>
+	<!--<value condition="!IsEmpty(Container(510).ListItem.Title)">$INFO[Container(510).ListItem.Season,s,]$INFO[Container(510).ListItem.Episode,e,]$INFO[Container(510).ListItem.TVShowTitle,(,) ]$INFO[Container(510).ListItem.Title]</value>-->
+	<value condition="!IsEmpty(Container(510).ListItem.Title)">$VAR[value_seasonpad,S,]$VAR[value_episodepad,E,] $INFO[Container(510).ListItem.Title]</value>
 	<value condition="IsEmpty(Container(510).ListItem.Title)">$INFO[Container(510).ListItem.Label]</value>
 	</variable>
 	

@@ -843,6 +843,31 @@
 	<label>[B]$INFO[Container(510).ListItem.Genre]$INFO[Container(510).ListItem.Property(Events)]$INFO[Container(510).ListItem.Property(Addon.Summary)][/B]</label>
 	<scroll>true</scroll>
 	</control>
+	<control type="label"><!-- TV Show title -->
+	<left>100</left>
+	<top>112</top>
+	<width>320</width>
+	<height>41</height>
+	<align>left</align>
+	<aligny>center</aligny>
+	<label>[B]$INFO[Container(510).ListItem.TVShowTitle][/B]</label>
+	<textcolor>FFFFFFFF</textcolor><!--$VAR[value_headercolor]-->
+	<font>Font_20</font>
+	<visible>!IsEmpty(Container(510).ListItem.TVShowTitle)</visible>
+	</control>
+	<control type="label"><!-- Episode title title -->
+	<left>100</left><!-- 580 -->
+	<top>136</top>
+	<width>320</width>
+	<height>41</height>
+	<align>left</align>
+	<aligny>center</aligny>
+	<xlabel>$INFO[Container(510).ListItem.Title]</xlabel>
+	<label>$VAR[value_mainmenu_label]</label>
+	<textcolor>$VAR[value_headercolor]</textcolor>
+	<font>Font_18</font>
+	<visible>!IsEmpty(Container(510).ListItem.TVShowTitle)</visible>
+	</control>
 	<control type="image">
 	<left>100</left>
 	<top>145</top>
@@ -856,7 +881,7 @@
 	<left>100</left>
 	<top>150</top>
 	<width>450</width>
-	<height>170</height>
+	<height>140</height>
 	<label>$INFO[Container(510).ListItem.Plot]$INFO[Container(510).ListItem.Property(Description)]$INFO[Container(510).ListItem.Property(Album_Description)]$INFO[Container(510).ListItem.Property(Artist_Description)]$INFO[Container(510).ListItem.Property(Addon.Description)]</label>
 	<textcolor>FFFFFAF0</textcolor>
 	<font>Font_18A</font>
@@ -866,9 +891,9 @@
 	</control>
 	<control type="textbox"><!-- Plot video maior -->
 	<left>100</left>
-	<top>150</top>
+	<top>194</top>
 	<width>450</width>
-	<height>196</height>
+	<height>152</height>
 	<label>$INFO[Container(510).ListItem.Plot]$INFO[Container(510).ListItem.Property(Description)]$INFO[Container(510).ListItem.Property(Album_Description)]$INFO[Container(510).ListItem.Property(Artist_Description)]$INFO[Container(510).ListItem.Property(Addon.Description)]</label>
 	<textcolor>FFFFFAF0</textcolor>
 	<font>Font_18A</font>
